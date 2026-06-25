@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReelGrab - Save Your Reels</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #171717, #3b0764, #831843);
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #fbbf24;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.12);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 10px 35px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 17px;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .box {
+      margin: 35px auto;
+      max-width: 720px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    input {
+      width: 100%;
+      padding: 17px;
+      border-radius: 14px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      background: #fbbf24;
+      color: #111827;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #message {
+      margin-top: 15px;
+      color: #fef3c7;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #fbbf24;
+    }
+
+    .card p {
+      color: #e5e7eb;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .notice {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #d1d5db;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 45px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Reel<span>Grab</span></div>
+      <div class="tag">Fast • Simple • Free</div>
+    </header>
+
+    <section class="hero">
+      <h1>Save Your Favourite Short Videos Easily</h1>
+      <p>
+        Paste a public video link and get a simple, clean experience.
+        Use this tool only for your own content or content you have permission to save.
+      </p>
+    </section>
+
+    <section class="box">
+      <input id="videoUrl" type="text" placeholder="Paste video link here..." />
+      <button onclick="handleDownload()">Continue</button>
+      <div id="message"></div>
+    </section>
+
+    <section class="features">
+      <div class="card">
+        <h3>Clean Design</h3>
+        <p>A simple and modern interface that works nicely on mobile phones.</p>
+      </div>
+
+      <div class="card">
+        <h3>Beginner Friendly</h3>
+        <p>This first version is made simple so you can launch your website without coding experience.</p>
+      </div>
+
+      <div class="card">
+        <h3>Safe Usage</h3>
+        <p>Use only for content you own or have permission to download.</p>
+      </div>
+    </section>
+
+    <p class="notice">
+      Disclaimer: ReelGrab is not affiliated with Instagram, Meta, or any social media platform.
+      Users are responsible for respecting copyright and platform rules.
+    </p>
+
+    <footer>
+      © 2026 ReelGrab. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function handleDownload() {
+      const url = document.getElementById("videoUrl").value.trim();
+      const message = document.getElementById("message");
+
+      if (!url) {
+        message.innerHTML = "Please paste a video link first.";
+        return;
+      }
+
+      if (!url.startsWith("http")) {
+        message.innerHTML = "Please paste a valid link starting with http or https.";
+        return;
+      }
+
+      message.innerHTML =
+        "Website design is ready. The download engine is not added yet because it needs a safe backend/API. First launch this page, then we will add the next feature carefully.";
+    }
+  </script>
+</body>
+</html>
